@@ -30,11 +30,27 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void addstudent(){
-        adminMapper.addstudent();
+    public List<Student> NewStudent() {
+        System.out.println("AdminService");
+        List<Student> students = adminMapper.getAllStudent();
+        System.out.println(students);
+        return students;
     }
-    public void delstudent(){
-        adminMapper.delstudent();
+
+    @Override
+    public List<Student> delStudent() {
+        System.out.println("AdminService");
+        List<Student> students = adminMapper.getAllStudent();
+        System.out.println(students);
+        return students;
+    }
+
+    @Override
+    public void addstudent(String studentid){
+        adminMapper.Newstudent(studentid);
+    }
+    public void delstudent(String studentid){
+        adminMapper.deletestudent(studentid);
     }
 
     @Override

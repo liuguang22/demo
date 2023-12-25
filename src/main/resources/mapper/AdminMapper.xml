@@ -5,7 +5,7 @@
 
 <mapper namespace="com.example.demo.mapper.AdminMapper">
 
-    <insert id="NewStudent">
+    <insert id="Newstudent">
         INSERT INTO student (s_id,s_name, s_sex, s_age, s_spe)
         VALUES (#{student_id}, #{student_name}, #{student_sex}, #{student_age}, #{student_spe})
     </insert>
@@ -24,7 +24,7 @@
         select s_id,s_name, s_sex, s_age, s_spe from student
     </select>
 
-    <delete id="deleteStudent">
+    <delete id="deletestudent">
         delete from student where s_id =#{student_id}
     </delete>
 

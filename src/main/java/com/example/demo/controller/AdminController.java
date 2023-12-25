@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Course;
 import com.example.demo.entity.Student;
 import com.example.demo.mapper.AdminMapper;
 import com.example.demo.service.AdminService;
@@ -27,19 +28,37 @@ public class AdminController {
     }
 
     //添加学生
+    @RequestMapping(value = "/addStudent", method = RequestMethod.GET)
+    public String NewStudent(Model model){
+        System.out.println("获取学生列表");
+        List<Student> students = adminService.NewStudent();
+        students.forEach(System.out::println);
+        model.addAttribute("students", students);
+        return "student/tuike";
+    }
+
     @RequestMapping(value = "/addStudent", method = RequestMethod.POST)
-    public String addStudent(@PathVariable("sId") String sId){
+    public String addStudent(@PathVariable("sId") String studentid){
         System.out.println("添加学生");
-        adminService.addstudent();
-        return "/admin/addStudent";
+        adminService.addstudent(studentid);
+        return "redirect:/admin/addStudent";
     }
 
     //删除学生
+    @RequestMapping(value = "/delStudent", method = RequestMethod.POST)
+    public String delStudent(Model model){
+        System.out.println("获取学生列表");
+        List<Student> students = adminService.delStudent();
+        students.forEach(System.out::println);
+        model.addAttribute("students", students);
+        return "admin/deleteStudent";
+    }
+
     @RequestMapping(value = "/student/{sId}", method = RequestMethod.POST)
-    public String delStudent(@PathVariable("sId") String sId){
+    public String delStudent(@PathVariable("sId") String studentid){
         System.out.println("删除学生");
-        adminService.delstudent();
-        return "deleteStudent";
+        adminService.delstudent(studentid);
+        return "redirect:/admin/deleteStudent";
     }
 
     //查看学生

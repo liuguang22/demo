@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <title>管理学生信息</title>
 </head>
 
 <body>
+<div class="container">
     <form action="/addStudent" method="post">
         <button type="submit">添加学生</button>
     </form>
@@ -18,6 +20,7 @@
     <form action="/addCourse" method="get">
         <button type="submit">修改学生信息</button>
     </form>
+</div>
 </body>
 
 </html>
