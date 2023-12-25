@@ -1,14 +1,20 @@
 package com.example.demo.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Student {
-    private String s_id;
-    private String studentName;
+    private String sId;
+    private String sName;
 
-    private String studentSex;
+    private String sSex;
 
-    private int age;
+    private int sAge;
 
-    private String spe;
+    private String sSpe;
 
 }

@@ -2,11 +2,11 @@ package com.example.demo.entity;
 
 public class Teacher {
     private String t_id;
-    private String teacherName;
+    private String t_name;
 
-    private String teacherSex;
+    private String t_sex;
 
-    private int age;
+    private int t_age;
 
-    private String spe;
+    private String t_spe;
 }

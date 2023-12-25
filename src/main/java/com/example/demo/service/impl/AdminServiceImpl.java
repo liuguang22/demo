@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import static com.example.demo.entity.Sc.sId;
-
+@Service
 public class AdminServiceImpl implements AdminService {
     @Autowired
     AdminMapper adminMapper;
@@ -23,7 +23,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<Student> getStudentList() {
-        System.out.println("CourseService");
+        System.out.println("AdminService");
         List<Student> students = adminMapper.getAllStudent();
         System.out.println(students);
         return students;

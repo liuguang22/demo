@@ -31,7 +31,7 @@ public class LoginController {
         // 在这里进行用户名和密码的验证
         if (loginService.login(new User(user_id, password))) {
             System.out.println("登录成功");
-//            sId=user_id;
+            sId=user_id;
             return "redirect:/admin/admin"; // 用户验证成功，重定向到成功页面
         } else {
             model.addAttribute("error", "用户名或密码错误");
@@ -44,6 +44,10 @@ public class LoginController {
     @RequestMapping(value = "/admin/admin")
     public String getSlist() {
         return "admin/admin";
+    }
+    @RequestMapping(value = "/list")
+    public String getSslist() {
+        return "student/list";
     }
 
 }

@@ -27,7 +27,7 @@ public class CourseController {
         List<Course> courses = courseService.getCourseList();
         courses.forEach(System.out::println);
         model.addAttribute("courses", courses);
-        return "courseList";
+        return "student/courseList";
     }
 
     @RequestMapping(value = "/xuanke", method = RequestMethod.GET)
@@ -36,7 +36,7 @@ public class CourseController {
         List<Course> courses = courseService.xuanke();
         courses.forEach(System.out::println);
         model.addAttribute("courses", courses);
-        return "xuanke";
+        return "student/xuanke";
     }
 
     @RequestMapping(value = "/tuike", method = RequestMethod.GET)
@@ -45,7 +45,7 @@ public class CourseController {
         List<Course> courses = courseService.tuike();
         courses.forEach(System.out::println);
         model.addAttribute("courses", courses);
-        return "tuike";
+        return "student/tuike";
     }
 
     @RequestMapping(value = "/grade", method = RequestMethod.GET)
@@ -54,7 +54,7 @@ public class CourseController {
         List<Course> courses = courseService.grade();
         courses.forEach(System.out::println);
         model.addAttribute("courses", courses);
-        return "grade";
+        return "student/grade";
     }
 
     @RequestMapping(value = "/course/{cId}", method = RequestMethod.POST)
