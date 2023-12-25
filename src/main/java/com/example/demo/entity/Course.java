@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Course {
-
     private String cId;
     private String cName;
     private String cCredit;
@@ -17,6 +16,4 @@ public class Course {
     private String tName;
     private String tTime;
     private float cGrade;
-
-
 }

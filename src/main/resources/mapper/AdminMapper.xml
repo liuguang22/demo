@@ -20,7 +20,7 @@
                            WHERE s_id = #{student_id}
     </update>
 
-    <select id="getAllStudent" resultType="com.example.demo.entity.Admin">
+    <select id="getAllStudent" resultType="com.example.demo.entity.Student">
         select s_id,s_name, s_sex, s_age, s_spe from student
     </select>
 

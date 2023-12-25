@@ -47,7 +47,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public void addsc(String sId,String cId) {
-        Sc sc=new Sc(sId,cId,-1);
+        Sc sc=new Sc(sId,cId,0);
         System.out.println(sId);
         System.out.println(cId);
         courseMapper.insertSc(sc);

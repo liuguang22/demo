@@ -10,11 +10,7 @@ import lombok.NoArgsConstructor;
 public class Student {
     private String sId;
     private String sName;
-
-    private String sSex;
-
+    private Gender sSex;
     private int sAge;
-
     private String sSpe;
-
 }

@@ -30,6 +30,14 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public void addstudent(){
+        adminMapper.addstudent();
+    }
+    public void delstudent(){
+        adminMapper.delstudent();
+    }
+
+    @Override
     public List<Teacher> getTeachertList() {
         return null;
     }

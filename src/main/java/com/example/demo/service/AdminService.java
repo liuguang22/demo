@@ -18,4 +18,6 @@ public interface AdminService {
     List<Spe> getSpeList();
 
 
+    void addstudent();
+    void delstudent();
 }

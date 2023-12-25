@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生列表</title>
+</head>
+
+<body>
+<table>
+    <tr>
+        <th>学生ID</th>
+        <th>学生姓名</th>
+        <th>学生性别</th>
+        <th>学生年龄</th>
+        <th>学生专业</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.sId}"></td>
+        <td th:text="${student.sName}"></td>
+        <td th:text="${student.sSex}"></td>
+        <td th:text="${student.sAge}"></td>
+        <td th:text="${student.sSpe}"></td>
+        <td>
+            <form th:action="@{'/student/'+${student.sId}}" method="post">
+                <!-- HiddenHttpMethodFilter要求：必须传输_method请求参数，并且值为最终的请求方式 -->
+                <input type="submit" value="删除">
+            </form>
+        </td>
+    </tr>
+</table>
+<form action="/admin/admin" method="get">
+    <button type="submit">返回主页</button>
+</form>
+</body>
+</html>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    table {
+        border-collapse: collapse;
+        width: 80%;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+    button {
+        text-align: center;
+        padding: 10px;
+        position: absolute;
+        right: 30px;
+        top:12px;
+    }
+</style>

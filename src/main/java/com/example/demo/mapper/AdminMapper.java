@@ -14,5 +14,7 @@ public interface AdminMapper {
     void insertCourse(Course course);
     void insertSc(Sc sc);
     void deleteSc(String sId,String cId);
+    void addstudent();
+    void delstudent();
 
 }
