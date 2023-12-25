@@ -39,6 +39,14 @@ public class CourseController {
         return "student/xuanke";
     }
 
+    @RequestMapping(value = "/course/{cId}", method = RequestMethod.POST)
+    public String xuanCourse(@PathVariable("cId") String cId){
+        System.out.println("选课成功");
+        courseService.addsc(sId,cId);
+        return "redirect:/xuanke";
+    }
+
+
     @RequestMapping(value = "/tuike", method = RequestMethod.GET)
     public String tuike(Model model){
         System.out.println("获取课程列表");
@@ -48,6 +56,13 @@ public class CourseController {
         return "student/tuike";
     }
 
+    @RequestMapping(value = "/course2/{cId}", method = RequestMethod.POST)
+    public String tuiCourse(@PathVariable("cId") String cId){
+        System.out.println("退课成功");
+        courseService.deletesc(sId,cId);
+        return "redirect:/tuike";
+    }
+
     @RequestMapping(value = "/grade", method = RequestMethod.GET)
     public String grade(Model model){
         System.out.println("获取课程列表");
@@ -55,20 +70,6 @@ public class CourseController {
         courses.forEach(System.out::println);
         model.addAttribute("courses", courses);
         return "student/grade";
-    }
-
-    @RequestMapping(value = "/course/{cId}", method = RequestMethod.POST)
-    public String xuanCourse(@PathVariable("cId") String cId){
-        System.out.println("选课成功");
-        courseService.addsc(sId,cId);
-        return "redirect:/xuanke";
-    }
-
-    @RequestMapping(value = "/course2/{cId}", method = RequestMethod.POST)
-    public String tuiCourse(@PathVariable("cId") String cId){
-        System.out.println("退课成功");
-        courseService.deletesc(sId,cId);
-        return "redirect:/tuike";
     }
 
 }

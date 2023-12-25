@@ -41,7 +41,7 @@ public class AdminController {
     public String addStudent(@PathVariable("sId") String studentid){
         System.out.println("添加学生");
         adminService.addstudent(studentid);
-        return "redirect:/admin/addStudent";
+        return "redirect:/addStudent";
     }
 
     //删除学生
@@ -58,7 +58,8 @@ public class AdminController {
     public String delStudent(@PathVariable("sId") String studentid){
         System.out.println("删除学生");
         adminService.delstudent(studentid);
-        return "redirect:/admin/deleteStudent";
+        adminService.deluser(studentid);
+        return "redirect:/deleteStudent";
     }
 
     //查看学生

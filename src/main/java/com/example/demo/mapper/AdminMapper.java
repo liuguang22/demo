@@ -16,5 +16,5 @@ public interface AdminMapper {
     void deleteSc(String sId,String cId);
     void Newstudent(String studentid);
     void deletestudent(String studentid);
-
+    void deleteuser(String studentid);
 }

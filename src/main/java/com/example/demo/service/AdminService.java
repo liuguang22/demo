@@ -23,4 +23,5 @@ public interface AdminService {
 
     void addstudent(String studentid);
     void delstudent(String studentid);
+    void deluser(String studentid);
 }

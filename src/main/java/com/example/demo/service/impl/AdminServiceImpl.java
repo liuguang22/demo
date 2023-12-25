@@ -54,6 +54,11 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public void deluser(String studentid) {
+        adminMapper.deleteuser(studentid);
+    }
+
+    @Override
     public List<Teacher> getTeachertList() {
         return null;
     }

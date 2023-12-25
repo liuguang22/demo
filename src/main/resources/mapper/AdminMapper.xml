@@ -27,5 +27,8 @@
     <delete id="deletestudent">
         delete from student where s_id =#{student_id}
     </delete>
+    <delete id="deleteuser">
+        delete from user where user_id =#{user_id}
+    </delete>
 
 </mapper>
