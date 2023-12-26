@@ -4,6 +4,7 @@
     <title>主页</title>
 </head>
 <body>
+<div class="container">
 <form action="/courseList" method="get">
     <button type="submit">查看课表</button>
 </form>
@@ -16,5 +17,26 @@
 <form action="/grade" method="get">
     <button type="submit">查看成绩</button>
 </form>
+</div>
 </body>
 </html>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        width: 400px;
+        padding: 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    button {
+        margin-bottom: 16px;
+    }
+</style>

@@ -36,6 +36,7 @@
         SELECT MAX(c_grade) AS cMax,MIN(c_grade) AS cMin,AVG(c_grade) AS cAvg,
                (SUM(CASE WHEN c_grade >= 60 THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS cJg,
                (SUM(CASE WHEN c_grade >= 90 THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS cYx
-        FROM grade;
+        FROM grade
+        where c_id=#{cId};
     </select>
 </mapper>

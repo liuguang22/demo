@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.example.demo.entity.Sc.sId;
+import static com.example.demo.entity.quanju.ssId;
 
 @Service
 public class CourseServiceImpl implements CourseService {
@@ -19,28 +19,28 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public List<Course> getCourseList() {
         System.out.println("CourseService");
-        List<Course> courses = courseMapper.getMyCourse(sId);
+        List<Course> courses = courseMapper.getMyCourse(ssId);
         System.out.println(courses);
         return courses;
     }
     @Override
     public List<Course> xuanke() {
         System.out.println("xuanke");
-        List<Course> courses = courseMapper.getAllCourse(sId);
+        List<Course> courses = courseMapper.getAllCourse(ssId);
         System.out.println(courses);
         return courses;
     }
     @Override
     public List<Course> tuike() {
         System.out.println("tuike");
-        List<Course> courses = courseMapper.getMyCourse(sId);
+        List<Course> courses = courseMapper.getMyCourse(ssId);
         System.out.println(courses);
         return courses;
     }
     @Override
     public List<Course> grade() {
         System.out.println("grade");
-        List<Course> courses = courseMapper.getMycj(sId);
+        List<Course> courses = courseMapper.getMycj(ssId);
         System.out.println(courses);
         return courses;
     }

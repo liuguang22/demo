@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import static com.example.demo.entity.Sc.sId;
-import static com.example.demo.entity.Teacher.tId;
+import static com.example.demo.entity.quanju.ssId;
+import static com.example.demo.entity.quanju.ttId;
 
 @Controller
 public class LoginController {
@@ -33,10 +33,10 @@ public class LoginController {
         if (loginService.login(new User(user_id, password))) {
             System.out.println("登陆成功");
             if(loginService.loginSf(user_id).equals("s")){
-                sId=user_id;
+                ssId=user_id;
                 return "redirect:/student";}
             else if(loginService.loginSf(user_id).equals("t")){
-                tId=user_id;
+                ttId=user_id;
 //                System.out.println(tId);
                 return "redirect:/teacher";
             }

@@ -6,6 +6,7 @@ import com.example.demo.entity.Sc;
 import com.example.demo.mapper.TeacherMapper;
 import com.example.demo.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-import static com.example.demo.entity.Teacher.tId;
-
+import static com.example.demo.entity.quanju.ttId;
+@Controller
 public class TeacherController {
     @Autowired
     TeacherService teacherService;
@@ -25,7 +26,7 @@ public class TeacherController {
     @RequestMapping(value = "/T_course")
     public String getT_Course(Model model) {
         System.out.println("获取课程列表");
-        List<Course> courses = teacherService.getT_Course(tId);
+        List<Course> courses = teacherService.getT_Course(ttId);
         courses.forEach(System.out::println);
         model.addAttribute("courses", courses);
         return "teacher/T_course";
@@ -40,7 +41,7 @@ public class TeacherController {
     @RequestMapping(value = "/T_student", method = RequestMethod.GET)
     public String getT_student(Model model) {
         System.out.println("获取课程列表");
-        List<Course> courses = teacherService.getT_student(tId);
+        List<Course> courses = teacherService.getT_student(ttId);
         courses.forEach(System.out::println);
         model.addAttribute("courses", courses);
         return "teacher/T_student";
@@ -49,7 +50,7 @@ public class TeacherController {
     @RequestMapping(value = "/T_sfx")
     public String getT_sfx(Model model) {
         System.out.println("获取课程列表");
-        List<Course> courses = teacherService.getT_sfx(tId);
+        List<Course> courses = teacherService.getT_sfx(ttId);
         courses.forEach(System.out::println);
         model.addAttribute("courses", courses);
         return "teacher/T_sfx";
@@ -67,7 +68,7 @@ public class TeacherController {
     @RequestMapping(value = "/T_sInfo/{cId}",method= RequestMethod.POST)
     public String getT_sInfo(@PathVariable("cId") String cId, Model model) {
         System.out.println("获取学生信息列表");
-        List<Sc> sc = teacherService.getT_sInfo(cId,tId);
+        List<Sc> sc = teacherService.getT_sInfo(cId,ttId);
         sc.forEach(System.out::println);
         model.addAttribute("sc", sc);
         return "teacher/T_sInfo";
@@ -76,7 +77,7 @@ public class TeacherController {
     @RequestMapping(value = "/T_update/{cId}",method= RequestMethod.POST)
     public String getT_update(@PathVariable("cId") String cId, Model model) {
         System.out.println("修改学生成绩");
-        List<Sc> sc = teacherService.getT_update(cId,tId);
+        List<Sc> sc = teacherService.getT_update(cId,ttId);
         sc.forEach(System.out::println);
         model.addAttribute("sc", sc);
         return "teacher/T_update";
@@ -85,7 +86,7 @@ public class TeacherController {
     @RequestMapping(value = "/ltwo")
     public String login(@RequestParam("cS") String sId, @RequestParam("cC") String cId, @RequestParam("cG") float cGrade, Model model) {
         System.out.println("进入修改");
-        Sc sc=new Sc(cId,sId,cGrade);
+        Sc sc=new Sc(sId,cId,cGrade);
         teacherService.getT_newG(sc);
         return "redirect:/T_student";
     }

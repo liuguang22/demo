@@ -12,7 +12,6 @@
         <th>课程学分</th>
         <th>上课地址</th>
         <th>教师id</th>
-<!--        <th>教师姓名</th>-->
         <th>上课时间</th>
     </tr>
     <tr th:each="course : ${courses}">
@@ -21,9 +20,7 @@
         <td th:text="${course.cCredit}"></td>
         <td th:text="${course.rId}"></td>
         <td th:text="${course.tId}"></td>
-<!--        <td th:text="${course.tName}"></td>-->
         <td th:text="${course.tTime}"></td>
-
     </tr>
 </table>
 </body>

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-import static com.example.demo.entity.Sc.sId;
+import static com.example.demo.entity.quanju.ssId;
 
 @Controller
 public class CourseController {
@@ -42,7 +42,7 @@ public class CourseController {
     @RequestMapping(value = "/course/{cId}", method = RequestMethod.POST)
     public String xuanCourse(@PathVariable("cId") String cId){
         System.out.println("选课成功");
-        courseService.addsc(sId,cId);
+        courseService.addsc(ssId,cId);
         return "redirect:/xuanke";
     }
 
@@ -59,7 +59,7 @@ public class CourseController {
     @RequestMapping(value = "/course2/{cId}", method = RequestMethod.POST)
     public String tuiCourse(@PathVariable("cId") String cId){
         System.out.println("退课成功");
-        courseService.deletesc(sId,cId);
+        courseService.deletesc(ssId,cId);
         return "redirect:/tuike";
     }
 

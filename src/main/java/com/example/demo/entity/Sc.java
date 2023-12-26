@@ -1,9 +1,18 @@
 package com.example.demo.entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class Sc {
-        public static String sId;
+        private String sId;
         private String cId;
         private float cGrade;
+        private String sName;
+        private String sSpe;
 
         public Sc(String sId, String cId, float cGrade) {
             this.sId = sId;

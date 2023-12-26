@@ -5,6 +5,7 @@
     <title>教师教务系统</title>
 </head>
 <body>
+<div class="container">
 <form action="/T_course" method="get">
     <button type="submit">查看课表</button>
 </form>
@@ -14,6 +15,26 @@
 <form action="/T_sfx" method="get">
     <button type="submit">成绩分析</button>
 </form>
-
+</div>
 </body>
 </html>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        width: 400px;
+        padding: 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    button {
+        margin-bottom: 16px;
+    }
+</style>
