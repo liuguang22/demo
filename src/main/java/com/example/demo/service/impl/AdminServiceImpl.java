@@ -2,14 +2,12 @@ package com.example.demo.service.impl;
 
 import com.example.demo.entity.*;
 import com.example.demo.mapper.AdminMapper;
-import com.example.demo.mapper.CourseMapper;
 import com.example.demo.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.example.demo.entity.Sc.sId;
 @Service
 public class AdminServiceImpl implements AdminService {
     @Autowired
@@ -52,15 +50,39 @@ public class AdminServiceImpl implements AdminService {
     public void delstudent(String studentid){
         adminMapper.deletestudent(studentid);
     }
-
     @Override
     public void deluser(String studentid) {
         adminMapper.deleteuser(studentid);
     }
+    public void addteacher(String teacherid){
+        adminMapper.Newteacher(teacherid);
+    }
+    public void delteacher(String teacherid){
+        adminMapper.deleteteacher(teacherid);
+    }
 
     @Override
-    public List<Teacher> getTeachertList() {
-        return null;
+    public List<Teacher> getTeacherList() {
+        System.out.println("AdminService");
+        List<Teacher> teachers = adminMapper.getAllTeacher();
+        System.out.println(teachers);
+        return teachers;
+    }
+
+    @Override
+    public List<Teacher> NewTeacher() {
+        System.out.println("AdminService");
+        List<Teacher> teachers = adminMapper.getAllTeacher();
+        System.out.println(teachers);
+        return teachers;
+    }
+
+    @Override
+    public List<Teacher> delTeacher() {
+        System.out.println("AdminService");
+        List<Teacher> teachers = adminMapper.getAllTeacher();
+        System.out.println(teachers);
+        return teachers;
     }
 
     @Override
@@ -70,6 +92,9 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<Spe> getSpeList() {
-        return null;
+        System.out.println("AdminService");
+        List<Spe> Spe = adminMapper.getAllSpe();
+        System.out.println(Spe);
+        return Spe;
     }
 }

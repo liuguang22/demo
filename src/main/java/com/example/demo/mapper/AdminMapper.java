@@ -7,8 +7,8 @@ import java.util.List;
 public interface AdminMapper {
     //全部信息
     List<Student> getAllStudent();
-    List<Teacher>  getAllteacher();
-    List<Spe>  getAllspe();
+    List<Teacher>  getAllTeacher();
+    List<Spe>  getAllSpe();
 
     //插入数据
     void insertCourse(Course course);
@@ -17,4 +17,6 @@ public interface AdminMapper {
     void Newstudent(String studentid);
     void deletestudent(String studentid);
     void deleteuser(String studentid);
+    void Newteacher(String tescherid);
+    void deleteteacher(String teacherid);
 }

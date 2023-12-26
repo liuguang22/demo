@@ -5,6 +5,8 @@
 
 <mapper namespace="com.example.demo.mapper.AdminMapper">
 
+    <!-- 学生 -->
+
     <insert id="Newstudent">
         INSERT INTO student (s_id,s_name, s_sex, s_age, s_spe)
         VALUES (#{student_id}, #{student_name}, #{student_sex}, #{student_age}, #{student_spe})
@@ -29,6 +31,28 @@
     </delete>
     <delete id="deleteuser">
         delete from user where user_id =#{user_id}
+    </delete>
+
+    <!-- 专业 -->
+
+    <insert id="NewSpe">
+        INSERT INTO spe (spe_id,spe_name)
+        VALUES (#{spe_id}, #{spe_name})
+    </insert>
+
+    <update id="updateSpe">
+        UPDATE spe set
+                       spe_id = #{spe_id},
+                       spe_name = #{spe_name},
+                       WHERE spe_id = #{spe_id}
+    </update>
+
+    <select id="getAllSpe" resultType="com.example.demo.entity.Spe">
+        select * from Spe
+    </select>
+
+    <delete id="deleteSpe">
+        delete from Spe where spe_id =#{spe_id}
     </delete>
 
 </mapper>

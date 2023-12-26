@@ -8,13 +8,14 @@ import com.example.demo.entity.Teacher;
 import java.util.List;
 
 public interface AdminService {
-    //查看全体学生
+    //学生
     List<Student> getStudentList();
     List<Student> NewStudent();
     List<Student> delStudent();
-//    List<Student> getStudentList();
-    //查看教师
-    List<Teacher> getTeachertList();
+    //教师
+    List<Teacher> getTeacherList();
+    List<Teacher> NewTeacher();
+    List<Teacher> delTeacher();
     //查看已开设课程
     List<Course> getCourseList();
     //查看已有专业
@@ -24,4 +25,6 @@ public interface AdminService {
     void addstudent(String studentid);
     void delstudent(String studentid);
     void deluser(String studentid);
+
+    void delteacher(String teacherid);
 }

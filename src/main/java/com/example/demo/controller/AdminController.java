@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Course;
+import com.example.demo.entity.Spe;
 import com.example.demo.entity.Student;
+import com.example.demo.entity.Teacher;
 import com.example.demo.mapper.AdminMapper;
 import com.example.demo.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +61,7 @@ public class AdminController {
         System.out.println("删除学生");
         adminService.delstudent(studentid);
         adminService.deluser(studentid);
-        return "redirect:/deleteStudent";
+        return "/admin/managerstudent";
     }
 
     //查看学生
@@ -88,6 +90,24 @@ public class AdminController {
         return "/admin/managerteacher";
     }
 
+    //删除教师
+    @RequestMapping(value = "/delTeacher", method = RequestMethod.POST)
+    public String delTeacher(Model model){
+        System.out.println("获取教师列表");
+        List<Teacher> teachers = adminService.delTeacher();
+        teachers.forEach(System.out::println);
+        model.addAttribute("teachers", teachers);
+        return "admin/deleteStudent";
+    }
+
+    @RequestMapping(value = "/teeacher/{tId}", method = RequestMethod.POST)
+    public String delTeacher(@PathVariable("sId") String teacherid){
+        System.out.println("删除学生");
+        adminService.delteacher(teacherid);
+        adminService.deluser(teacherid);
+        return "/admin/managerstudent";
+    }
+
     @RequestMapping(value = "/managercourse")
     public String managercourse(){
         System.out.println("管理课程信息");
@@ -98,6 +118,15 @@ public class AdminController {
     public String managerspe(){
         System.out.println("管理专业信息");
         return "/admin/managerspe";
+    }
+
+    @RequestMapping(value = "/adminSpelist", method = RequestMethod.GET)
+    public String getSpeList(Model model){
+        System.out.println("获取专业列表");
+        List<Spe> spes = adminService.getSpeList();
+        spes.forEach(System.out::println);
+        model.addAttribute("spes", spes);
+        return "admin/adminSpelist";
     }
 
 }

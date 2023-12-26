@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>专业列表</title>
+</head>
+
+<body>
+<table>
+  <tr>
+    <th>专业ID</th>
+    <th>专业名称</th>
+  </tr>
+  <tr th:each="spe : ${spes}">
+    <td th:text="${spe.speId}"></td>
+    <td th:text="${spe.speName}"></td>
+  </tr>
+</table>
+<form action="/admin/admin" method="get">
+  <button type="submit">返回主页</button>
+</form>
+</body>
+</html>
+
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 20px;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  a {
+    text-decoration: none;
+    color: blue;
+  }
+  button {
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    right: 30px;
+    top:12px;
+  }
+</style>
