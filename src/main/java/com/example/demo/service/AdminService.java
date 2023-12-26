@@ -17,7 +17,7 @@ public interface AdminService {
     List<Teacher> NewTeacher();
     List<Teacher> delTeacher();
     //查看已开设课程
-    List<Course> getCourseList();
+    List<Course> getCourseLists();
     //查看已有专业
     List<Spe> getSpeList();
 
@@ -25,6 +25,11 @@ public interface AdminService {
     void addstudent(String studentid);
     void delstudent(String studentid);
     void deluser(String studentid);
+    void deluser1(String teacherid);
 
     void delteacher(String teacherid);
+
+    void openSpe(Spe spe);
+    void updateSpe(Spe spe);
+
 }

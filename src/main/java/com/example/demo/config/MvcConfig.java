@@ -9,7 +9,7 @@ public class MvcConfig  implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         // 使用addViewController方法将路径映射到视图名称
-        registry.addViewController("/").setViewName("index");
+        registry.addViewController("/").setViewName("login");
         //registry.addViewController("/toAdd").setViewName("course_add");
     }
 

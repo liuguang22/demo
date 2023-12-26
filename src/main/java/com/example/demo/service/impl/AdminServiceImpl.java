@@ -12,12 +12,6 @@ import java.util.List;
 public class AdminServiceImpl implements AdminService {
     @Autowired
     AdminMapper adminMapper;
-    //查看教师
-    //List<Teacher> getTeachertList();
-    //查看已开设课程
-    //List<Course> getCourseList();
-    //查看已有专业
-    //List<Spe> getSpeList();
 
     @Override
     public List<Student> getStudentList() {
@@ -60,6 +54,19 @@ public class AdminServiceImpl implements AdminService {
     public void delteacher(String teacherid){
         adminMapper.deleteteacher(teacherid);
     }
+    public void deluser1(String teacherid){
+        adminMapper.deleteuser1(teacherid);
+    }
+    @Override
+    public void openSpe(Spe spe) {
+        adminMapper.NewSpe(spe);
+    }
+
+    @Override
+    public void updateSpe(Spe spe) {
+        adminMapper.updateSpe(spe);
+    }
+
 
     @Override
     public List<Teacher> getTeacherList() {
@@ -86,8 +93,11 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<Course> getCourseList() {
-        return null;
+    public List<Course> getCourseLists() {
+        System.out.println("AdminService");
+        List<Course> Course = adminMapper.getAllCourses();
+        System.out.println(Course);
+        return Course;
     }
 
     @Override

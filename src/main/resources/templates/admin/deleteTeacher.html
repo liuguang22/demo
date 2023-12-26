@@ -2,28 +2,34 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>课程列表</title>
+    <title>删除教师</title>
 </head>
+
 <body>
 <table>
     <tr>
-        <th>课程ID</th>
-        <th>课程名称</th>
-        <th>课程学分</th>
-        <th>教师ID</th>
-        <th>教师</th>
-        <th>成绩</th>
+        <th>教师工号</th>
+        <th>教师姓名</th>
+        <th>教师性别</th>
+        <th>教师年龄</th>
+        <th>教师专业</th>
+        <th>操作</th>
     </tr>
-    <tr th:each="course : ${courses}">
-        <td th:text="${course.cId}"></td>
-        <td th:text="${course.cName}"></td>
-        <td th:text="${course.cCredit}"></td>
-        <td th:text="${course.tId}"></td>
-        <td th:text="${course.tName}"></td>
-        <td th:text="${course.cGrade}"></td>
+    <tr th:each="teacher : ${teachers}">
+        <td th:text="${teacher.tId}"></td>
+        <td th:text="${teacher.tName}"></td>
+        <td th:text="${teacher.tSex}"></td>
+        <td th:text="${teacher.tAge}"></td>
+        <td th:text="${teacher.tSpe}"></td>
+        <td>
+            <form th:action="@{'/teacher/'+${teacher.tId}}" method="post">
+                <!-- HiddenHttpMethodFilter要求：必须传输_method请求参数，并且值为最终的请求方式 -->
+                <input type="submit" value="删除">
+            </form>
+        </td>
     </tr>
 </table>
-<form action="/list" method="get">
+<form action="/admin/admin" method="get">
     <button type="submit">返回主页</button>
 </form>
 </body>

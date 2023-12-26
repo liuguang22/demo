@@ -9,7 +9,7 @@ public interface AdminMapper {
     List<Student> getAllStudent();
     List<Teacher>  getAllTeacher();
     List<Spe>  getAllSpe();
-    List<Spe>  getAllCourse();
+    List<Course>  getAllCourses();
 
     //插入数据
     void insertCourse(Course course);
@@ -20,4 +20,8 @@ public interface AdminMapper {
     void deleteuser(String studentid);
     void Newteacher(String tescherid);
     void deleteteacher(String teacherid);
+    void deleteuser1(String teacherid);
+
+    void updateSpe(Spe spe);
+    void NewSpe(Spe spe);
 }

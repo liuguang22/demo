@@ -54,26 +54,31 @@
         select * from teacher
     </select>
 
-    <delete id="deleteTeacher">
+    <delete id="deleteteacher">
         delete from teacher where t_id =#{teacher_id}
+    </delete>
+    <delete id="deleteuser1">
+        delete from user where user_id =#{user_id}
     </delete>
 
     <!-- 课程 -->
 
-
+    <select id="getAllCourses" resultType="com.example.demo.entity.Course">
+        select c_id,c_name,c_credit,r_id,t_id,t_name,t_time from course
+    </select>
 
     <!-- 专业 -->
 
     <insert id="NewSpe">
         INSERT INTO spe (spe_id,spe_name)
-        VALUES (#{spe_id}, #{spe_name})
+        VALUES (#{speId}, #{speName})
     </insert>
 
     <update id="updateSpe">
         UPDATE spe set
-                       spe_id = #{spe_id},
-                       spe_name = #{spe_name},
-                       WHERE spe_id = #{spe_id}
+                       spe_id = #{speId},
+                       spe_name = #{speName}
+        WHERE spe_id = #{speId}
     </update>
 
     <select id="getAllSpe" resultType="com.example.demo.entity.Spe">
@@ -81,7 +86,7 @@
     </select>
 
     <delete id="deleteSpe">
-        delete from Spe where spe_id =#{spe_id}
+        delete from Spe where spe_id =#{speId}
     </delete>
 
 </mapper>

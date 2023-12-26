@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>课程列表</title>
 </head>
+
 <body>
 <table>
     <tr>
-        <th>课程ID</th>
+        <th>课程课号</th>
         <th>课程名称</th>
         <th>课程学分</th>
-        <th>教师ID</th>
-        <th>教师</th>
-        <th>成绩</th>
+        <th>上课教室</th>
+        <th>授课教师</th>
+        <th>课程时间</th>
+        <th>操作</th>
     </tr>
     <tr th:each="course : ${courses}">
         <td th:text="${course.cId}"></td>
         <td th:text="${course.cName}"></td>
         <td th:text="${course.cCredit}"></td>
-        <td th:text="${course.tId}"></td>
+        <td th:text="${course.rId}"></td>
         <td th:text="${course.tName}"></td>
-        <td th:text="${course.cGrade}"></td>
+        <td th:text="${course.tTime}"></td>
+        <td>
+            <form th:action="@{'/course3/'+${course.cId}}" method="post">
+                <!-- HiddenHttpMethodFilter要求：必须传输_method请求参数，并且值为最终的请求方式 -->
+                <input type="submit" value="删除">
+            </form>
+        </td>
     </tr>
 </table>
-<form action="/list" method="get">
+<form action="/admin/admin" method="get">
     <button type="submit">返回主页</button>
 </form>
 </body>
+
 </html>
 
 <style>
@@ -37,28 +47,34 @@
         height: 100vh;
         margin: 0;
     }
+
     table {
         border-collapse: collapse;
         width: 80%;
         margin-top: 20px;
     }
-    th, td {
+
+    th,
+    td {
         border: 1px solid black;
         padding: 8px;
         text-align: left;
     }
+
     th {
         background-color: #f2f2f2;
     }
+
     a {
         text-decoration: none;
         color: blue;
     }
+
     button {
         text-align: center;
         padding: 10px;
         position: absolute;
         right: 30px;
-        top:12px;
+        top: 12px;
     }
 </style>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -7,21 +7,36 @@
 </head>
 
 <body>
-    <form action="/openSpe" method="post">
-        <table>
+
+<table>
+    <tr>
+        <th>专业号</th>
+        <th>专业名称</th>
+    </tr>
+    <tr th:each="spe: ${spes}">
+        <td th:text="${spe.speId}"></td>
+        <td th:text="${spe.speName}"></td>
+    </tr>
+
+
+    <form action="/update_spe" method="post">
+
             <tr>
                 <td>专业号</td>
-                <td><input type="text" name="spe_id"></td>
+                <td><input type="text" name="speId"></td>
             </tr>
+
             <tr>
                 <td>专业名称</td>
-                <td><input type="text" name="spe_name"></td>
+                <td><input type="text" name="speName"></td>
             </tr>
+
             <tr>
                 <td><input type="submit" value="确认修改"></td>
             </tr>
-        </table>
     </form>
+</table>
+
 </body>
 
 </html>

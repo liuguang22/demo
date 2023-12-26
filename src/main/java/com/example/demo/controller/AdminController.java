@@ -6,9 +6,11 @@ import com.example.demo.entity.Student;
 import com.example.demo.entity.Teacher;
 import com.example.demo.mapper.AdminMapper;
 import com.example.demo.service.AdminService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -97,14 +99,14 @@ public class AdminController {
         List<Teacher> teachers = adminService.delTeacher();
         teachers.forEach(System.out::println);
         model.addAttribute("teachers", teachers);
-        return "admin/deleteStudent";
+        return "admin/deleteTeacher";
     }
 
     @RequestMapping(value = "/teacher/{tId}", method = RequestMethod.POST)
     public String delTeacher(@PathVariable("tId") String teacherid){
         System.out.println("删除教师");
         adminService.delteacher(teacherid);
-        adminService.deluser(teacherid);
+        adminService.deluser1(teacherid);
         return "/admin/managerteacher";
     }
 
@@ -124,11 +126,48 @@ public class AdminController {
         return "/admin/managercourse";
     }
 
+    @RequestMapping(value = "/adminCourselist", method = RequestMethod.GET)
+    public String getCourseLists(Model model){
+        System.out.println("获取课程列表");
+        List<Course> courses = adminService.getCourseLists();
+        courses.forEach(System.out::println);
+        model.addAttribute("courses", courses);
+        return "admin/adminCourselist";
+    }
+
     @RequestMapping(value = "/managerspe")
     public String managerspe(){
         System.out.println("管理专业信息");
         return "/admin/managerspe";
     }
+
+    @RequestMapping(value = "/openSpe",method = RequestMethod.GET)
+    public String openSpe(){
+        System.out.println("管理学生信息");
+        return "/admin/openSpe";
+    }
+    @RequestMapping(value = "/openSpe",method = RequestMethod.POST)
+    public String openSpe(@ModelAttribute @Valid Spe spe){
+        adminService.openSpe(spe);
+        System.out.println("添加专业成功");
+        return "admin/admin";
+    }
+
+    @RequestMapping(value = "/update_spe", method = RequestMethod.GET)
+    public String getspeList(Model model){
+        System.out.println("获取专业列表");
+        List<Spe> spes = adminService.getSpeList();
+        spes.forEach(System.out::println);
+        model.addAttribute("spes", spes);
+        return "/admin/update_spe";
+    }
+    @RequestMapping(value = "/update_spe",method = RequestMethod.POST)
+    public String updateSpe(@Valid  Spe spe){
+        adminService.updateSpe(spe);
+        System.out.println("修改专业信息");
+        return "admin/admin";
+    }
+
 
     @RequestMapping(value = "/adminSpelist", method = RequestMethod.GET)
     public String getSpeList(Model model){
