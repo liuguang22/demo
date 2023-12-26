@@ -7,6 +7,10 @@
 
     <!-- 学生 -->
 
+    <insert id="Newsuser">
+        INSERT INTO user (user_id,user_sf,password)
+        VALUES (#{user_id}, 's', #{password})
+    </insert>
     <insert id="Newstudent">
         INSERT INTO student (s_id,s_name, s_sex, s_age, s_spe)
         VALUES (#{student_id}, #{student_name}, #{student_sex}, #{student_age}, #{student_spe})
@@ -14,12 +18,12 @@
 
     <update id="updateStudent">
         UPDATE student set
-                           s_id = #{student_id},
-                           s_name = #{student_name},
-                           s_sex = #{student_sex},
-                           s_age = #{student_age},
-                           s_spe = #{student_spe},
-                           WHERE s_id = #{student_id}
+                           s_id = #{sId},
+                           s_name = #{sName},
+                           s_sex = #{sSex},
+                           s_age = #{sAge},
+                           s_spe = #{sSpe}
+        WHERE s_id = #{sId}
     </update>
 
     <select id="getAllStudent" resultType="com.example.demo.entity.Student">
@@ -30,11 +34,15 @@
         delete from student where s_id =#{student_id}
     </delete>
     <delete id="deleteuser">
-        delete from user where user_id =#{user_id}
+    delete from user where user_id =#{user_id}
     </delete>
 
     <!-- 教师 -->
 
+    <insert id="Newsuser1">
+        INSERT INTO user (user_id,user_sf,password)
+        VALUES (#{user_id}, 't', #{password})
+    </insert>
     <insert id="NewTeacher">
         INSERT INTO teacher (t_id,t_name, t_sex, t_age, t_spe)
         VALUES (#{teacher_id}, #{teacher_name}, #{teacher_sex}, #{teacher_age}, #{teacher_spe})
@@ -62,9 +70,17 @@
     </delete>
 
     <!-- 课程 -->
+    <insert id="NewCourse" parameterType="map">
+        INSERT INTO course (c_id,c_name,c_credit,r_id,t_id,t_time )
+        VALUES (#{cId},#{cName},#{cCredit},#{rId},#{tId},#{tTime})
+    </insert>
+
+    <delete id="deletecourse">
+        delete from course where c_id =#{c_id}
+    </delete>
 
     <select id="getAllCourses" resultType="com.example.demo.entity.Course">
-        select c_id,c_name,c_credit,r_id,t_id,t_name,t_time from course
+        select course.*,teacher.t_name from course join teacher on course.t_id = teacher.t_id;
     </select>
 
     <!-- 专业 -->
@@ -85,7 +101,7 @@
         select * from Spe
     </select>
 
-    <delete id="deleteSpe">
+    <delete id="deletespe">
         delete from Spe where spe_id =#{speId}
     </delete>
 

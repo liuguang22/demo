@@ -14,14 +14,6 @@ public class AdminServiceImpl implements AdminService {
     AdminMapper adminMapper;
 
     @Override
-    public List<Student> getStudentList() {
-        System.out.println("AdminService");
-        List<Student> students = adminMapper.getAllStudent();
-        System.out.println(students);
-        return students;
-    }
-
-    @Override
     public List<Student> NewStudent() {
         System.out.println("AdminService");
         List<Student> students = adminMapper.getAllStudent();
@@ -38,33 +30,15 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void addstudent(String studentid){
-        adminMapper.Newstudent(studentid);
-    }
-    public void delstudent(String studentid){
-        adminMapper.deletestudent(studentid);
-    }
-    @Override
-    public void deluser(String studentid) {
-        adminMapper.deleteuser(studentid);
-    }
-    public void addteacher(String teacherid){
-        adminMapper.Newteacher(teacherid);
-    }
-    public void delteacher(String teacherid){
-        adminMapper.deleteteacher(teacherid);
-    }
-    public void deluser1(String teacherid){
-        adminMapper.deleteuser1(teacherid);
-    }
-    @Override
-    public void openSpe(Spe spe) {
-        adminMapper.NewSpe(spe);
+    public List<Student> getStudentList() {
+        System.out.println("AdminService");
+        List<Student> students = adminMapper.getAllStudent();
+        System.out.println(students);
+        return students;
     }
 
-    @Override
-    public void updateSpe(Spe spe) {
-        adminMapper.updateSpe(spe);
+    public void updatestudent(Student student){
+        adminMapper.updateStudent(student);
     }
 
 
@@ -93,7 +67,22 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public void openCourse(Course course){
+        System.out.println("更新课程");
+        adminMapper.NewCourse(course);
+    }
+
+
+    @Override
     public List<Course> getCourseLists() {
+        System.out.println("AdminService");
+        List<Course> Course = adminMapper.getAllCourses();
+        System.out.println(Course);
+        return Course;
+    }
+
+    @Override
+    public List<Course> delCourse(){
         System.out.println("AdminService");
         List<Course> Course = adminMapper.getAllCourses();
         System.out.println(Course);
@@ -107,4 +96,54 @@ public class AdminServiceImpl implements AdminService {
         System.out.println(Spe);
         return Spe;
     }
+
+    @Override
+    public List<Spe> delSpe(){
+        System.out.println("AdminService");
+        List<Spe> Spe = adminMapper.getAllSpe();
+        System.out.println(Spe);
+        return Spe;
+    }
+
+    @Override
+    public void addstudent(String studentid){
+        adminMapper.Newstudent(studentid);
+    }
+    @Override
+    public void delstudent(String studentid){
+        adminMapper.deletestudent(studentid);
+    }
+    @Override
+    public void deluser(String studentid) {
+        adminMapper.deleteuser(studentid);
+    }
+//    @Override
+    public void addteacher(String teacherid){
+        adminMapper.Newteacher(teacherid);
+    }
+    @Override
+    public void delteacher(String teacherid){
+        adminMapper.deleteteacher(teacherid);
+    }
+    @Override
+    public void deluser1(String teacherid){
+        adminMapper.deleteuser1(teacherid);
+    }
+    @Override
+    public void delcourse(String courseid){
+        adminMapper.deletecourse(courseid);
+    }
+    @Override
+    public void openSpe(Spe spe) {
+        adminMapper.NewSpe(spe);
+    }
+    @Override
+    public void delspe(String speid){
+        adminMapper.deletespe(speid);
+    }
+    @Override
+    public void updateSpe(Spe spe) {
+        adminMapper.updateSpe(spe);
+    }
+
 }

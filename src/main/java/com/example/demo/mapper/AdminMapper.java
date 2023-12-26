@@ -12,16 +12,18 @@ public interface AdminMapper {
     List<Course>  getAllCourses();
 
     //插入数据
-    void insertCourse(Course course);
-    void insertSc(Sc sc);
-    void deleteSc(String sId,String cId);
     void Newstudent(String studentid);
     void deletestudent(String studentid);
     void deleteuser(String studentid);
     void Newteacher(String tescherid);
     void deleteteacher(String teacherid);
     void deleteuser1(String teacherid);
-
+    void deletecourse(String courseid);
     void updateSpe(Spe spe);
     void NewSpe(Spe spe);
+    void deletespe(String speid);
+    void NewCourse(Course course);
+    void updateStudent(Student student);
+
+
 }

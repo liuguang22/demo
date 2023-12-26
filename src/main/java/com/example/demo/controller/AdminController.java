@@ -76,14 +76,12 @@ public class AdminController {
         return "admin/adminStudentlist";
     }
 
-    //修改学生
-    @RequestMapping(value = "/adminstudentlist", method = RequestMethod.POST)
-    public String updateStudent(Model model){
-        System.out.println("修改学生");
-        List<Student> students = adminService.getStudentList();
-        students.forEach(System.out::println);
-        model.addAttribute("students", students);
-        return "admin/adminStudentlist";
+    //修改学生信息
+    @RequestMapping(value = "/update_student",method = RequestMethod.POST)
+    public String update_student(@ModelAttribute @Valid Student student){
+        adminService.updatestudent(student);
+        System.out.println("管理学生信息--修改学生信息");
+        return "admin/update_student";
     }
 
     @RequestMapping(value = "/managerteacher")
@@ -126,6 +124,37 @@ public class AdminController {
         return "/admin/managercourse";
     }
 
+   //新增课程
+    @RequestMapping(value = "/openCourse",method = RequestMethod.GET)
+    public String openCourse(Model model){
+        System.out.println("开设课程");
+        return "/admin/openCourse";
+    }
+    @RequestMapping(value = "/openCourse",method = RequestMethod.POST)
+    public String openCourse(@ModelAttribute @Valid Course course){
+        adminService.openCourse(course);
+        System.out.println("添加课程成功");
+        return "admin/openCourse";
+    }
+
+    //删除课程
+
+    @RequestMapping(value = "/delCourse", method = RequestMethod.POST)
+    public String delCourse(Model model){
+        System.out.println("获取课程列表");
+        List<Course> courses = adminService.delCourse();
+        courses.forEach(System.out::println);
+        model.addAttribute("courses", courses);
+        return "admin/deleteCourse";
+    }
+
+    @RequestMapping(value = "/course3/{cId}", method = RequestMethod.POST)
+    public String delCourse(@PathVariable("cId") String courseid){
+        System.out.println("删除课程");
+        adminService.delcourse(courseid);
+        return "/admin/managercourse";
+    }
+
     //查看课程
 
     @RequestMapping(value = "/adminCourselist", method = RequestMethod.GET)
@@ -143,6 +172,8 @@ public class AdminController {
         return "/admin/managerspe";
     }
 
+    //添加专业
+
     @RequestMapping(value = "/openSpe",method = RequestMethod.GET)
     public String openSpe(){
         return "/admin/openSpe";
@@ -154,21 +185,7 @@ public class AdminController {
         return "admin/admin";
     }
 
-    @RequestMapping(value = "/update_spe", method = RequestMethod.GET)
-    public String getspeList(Model model){
-        System.out.println("获取专业列表");
-        List<Spe> spes = adminService.getSpeList();
-        spes.forEach(System.out::println);
-        model.addAttribute("spes", spes);
-        return "/admin/update_spe";
-    }
-    @RequestMapping(value = "/update_spe",method = RequestMethod.POST)
-    public String updateSpe(@Valid  Spe spe){
-        adminService.updateSpe(spe);
-        System.out.println("修改专业信息");
-        return "admin/admin";
-    }
-
+    //查看专业
 
     @RequestMapping(value = "/adminSpelist", method = RequestMethod.GET)
     public String getSpeList(Model model){
@@ -177,6 +194,42 @@ public class AdminController {
         spes.forEach(System.out::println);
         model.addAttribute("spes", spes);
         return "admin/adminSpelist";
+    }
+
+    //删除专业
+
+    @RequestMapping(value = "/delSpe", method = RequestMethod.POST)
+    public String delSpe(Model model){
+        System.out.println("获取专业列表");
+        List<Spe> spes = adminService.delSpe();
+        spes.forEach(System.out::println);
+        model.addAttribute("spes", spes);
+        return "admin/deleteSpe";
+    }
+
+    @RequestMapping(value = "/spe/{speId}", method = RequestMethod.POST)
+    public String delSpe(@PathVariable("speId") String speid){
+        System.out.println("删除专业");
+        adminService.delspe(speid);
+        return "/admin/managerspe";
+    }
+
+    //修改专业
+
+    @RequestMapping(value = "/update_spe", method = RequestMethod.GET)
+    public String getspeList(Model model){
+        System.out.println("获取专业列表");
+        List<Spe> spes = adminService.getSpeList();
+        spes.forEach(System.out::println);
+        model.addAttribute("spes", spes);
+        return "/admin/update_spe";
+    }
+
+    @RequestMapping(value = "/update_spe",method = RequestMethod.POST)
+    public String updateSpe(@Valid  Spe spe){
+        adminService.updateSpe(spe);
+        System.out.println("修改专业信息");
+        return "admin/admin";
     }
 
 }
