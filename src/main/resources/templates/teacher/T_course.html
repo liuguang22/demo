@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>教师查看课表</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>课程id</th>
+        <th>课程名称</th>
+        <th>课程学分</th>
+        <th>上课地址</th>
+        <th>教师id</th>
+<!--        <th>教师姓名</th>-->
+        <th>上课时间</th>
+    </tr>
+    <tr th:each="course : ${courses}">
+        <td th:text="${course.cId}"></td>
+        <td th:text="${course.cName}"></td>
+        <td th:text="${course.cCredit}"></td>
+        <td th:text="${course.rId}"></td>
+        <td th:text="${course.tId}"></td>
+<!--        <td th:text="${course.tName}"></td>-->
+        <td th:text="${course.tTime}"></td>
+
+    </tr>
+</table>
+</body>
+</html>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    table {
+        border-collapse: collapse;
+        width: 80%;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>

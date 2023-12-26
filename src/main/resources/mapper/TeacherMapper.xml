@@ -1,30 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.mapper.TeacherMapper">
 
-    <insert id="NewTeacher">
-        INSERT INTO teacher (t_id,t_name, t_sex, t_age, t_spe)
-        VALUES (#{teacher_id}, #{teacher_name}, #{teacher_sex}, #{teacher_age}, #{teacher_spe})
-    </insert>
-
-    <update id="updateTeacher">
-        UPDATE student set
-                           t_id = #{teacher_id},
-                           t_name = #{teacher_name},
-                           t_sex = #{teacher_sex},
-                           t_age = #{teacher_age},
-                           t_spe = #{teacher_spe},
-                           WHERE t_id = #{teacher_id}
+    <update id="getTng">
+        UPDATE grade set c_grade = #{cGrade} WHERE c_id = #{cId} AND s_id = #{sId}
     </update>
 
-    <select id="getAllTeacher" resultType="com.example.demo.entity.Teacher">
-        select * from teacher
+    <select id="getTgrade" resultType="com.example.demo.entity.Sc">
+        select c_grade, c_id, s_i FROM grade WHERE c_id = #{cId} AND s_id = #{sId} AND c_grade=#{cGrade}
     </select>
 
-    <delete id="deleteTeacher">
-        delete from teacher where t_id =#{teacher_id}
-    </delete>
+    <select id="getTCourse" resultType="com.example.demo.entity.Course">
+        select * from course where t_id =#{tId}
+    </select>
 
+    <select id="getT_student" resultType="com.example.demo.entity.Course">
+        select c_id,c_name from course where t_id =#{tId}
+    </select>
+
+    <select id="getT_sfx" resultType="com.example.demo.entity.Course">
+        select c_id,c_name from course where t_id =#{tId}
+    </select>
+    <select id="getTsInfo" resultType="com.example.demo.entity.Sc">
+        select student.s_id,grade.c_id,c_grade,s_name,s_spe from course,student,grade where t_id =#{tId} AND grade.c_id=#{cId} AND student.s_id=grade.s_id AND grade.c_id=course.c_id
+    </select>
+
+    <select id="getTupdate" resultType="com.example.demo.entity.Sc">
+        select student.s_id,grade.c_id,c_grade,s_name,s_spe from course,student,grade where t_id =#{tId} AND grade.c_id=#{cId} AND student.s_id=grade.s_id AND grade.c_id=course.c_id
+    </select>
+
+    <select id="getFenxi" resultType="com.example.demo.entity.Fenxi">
+        SELECT MAX(c_grade) AS cMax,MIN(c_grade) AS cMin,AVG(c_grade) AS cAvg,
+               (SUM(CASE WHEN c_grade >= 60 THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS cJg,
+               (SUM(CASE WHEN c_grade >= 90 THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS cYx
+        FROM grade;
+    </select>
 </mapper>

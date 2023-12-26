@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教师选择课程</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>课程id</th>
+        <th>课程名称</th>
+        <th>请选择需要查看的课程</th>
+    </tr>
+    <tr th:each="course : ${courses}">
+        <td th:text="${course.cId}"></td>
+        <td th:text="${course.cName}"></td>
+        <td>
+            <form th:action="@{'/T_sInfo/'+${course.cId}}" method="post">
+            <button type="submit">选择</button>
+            </form>
+        </td>
+<!--        <td>-->
+<!--            <form action="/T_sInfo" method="post">-->
+<!--                <input type="hidden" name="cId" value="#{course.cId}">-->
+<!--                <button type="submit">选择</button>-->
+<!--            </form>-->
+<!--        </td>-->
+
+    </tr>
+</table>
+
+</body>
+</html>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    table {
+        border-collapse: collapse;
+        width: 50%;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>

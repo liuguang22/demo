@@ -7,10 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Teacher {
-    public static String tId;
-    private String tName;
-    private String tSex;
-    private int tAge;
-    private String tSpe;
+
+public class Fenxi {
+    public float cMax;
+    public float cMin;
+
+    public float cAvg;
+    public float cJg;
+    public float cYx;
 }

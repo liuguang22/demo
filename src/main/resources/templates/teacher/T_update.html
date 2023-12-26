@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>修改成绩</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>学生id</th>
+        <th>学生姓名</th>
+        <th>学生专业</th>
+        <th>学生专业</th>
+        <th>打分</th>
+    </tr>
+
+    <tr th:each="sc: ${sc}">
+<!--        <form action="/T_newG" method="post">-->
+        <td th:text="${sc.cId}" type="text"></td>
+
+        <td th:text="${sc.sId}" type="text"></td>
+        <td th:text="${sc.sName}" type="text"></td>
+        <td th:text="${sc.sSpe}" type="text"></td>
+
+
+        <td>
+            <input type="number" id="cGrade" placeholder="请输入内容">
+            <form th:action="@{'/T_newG/'+${sc.cGrade}+'/'+${sc.sId}+'/'+${sc.cId}}" method="post">
+                <button type="submit">确认</button>
+            </form>
+
+<!--        <td>-->
+<!--        <input type="number" id="cGrade" placeholder="请输入内容">-->
+<!--                <button type="submit">确定</button>-->
+<!--        </td>-->
+        </td>
+
+
+    </tr>
+
+</table>
+</body>
+</html>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    table {
+        border-collapse: collapse;
+        width: 80%;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style></title>
+</head>
+<body>
+
+</body>
+</html>

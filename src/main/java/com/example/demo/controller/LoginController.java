@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import static com.example.demo.entity.Sc.sId;
+import static com.example.demo.entity.Teacher.tId;
 
 @Controller
 public class LoginController {
@@ -35,7 +36,9 @@ public class LoginController {
                 sId=user_id;
                 return "redirect:/student";}
             else if(loginService.loginSf(user_id).equals("t")){
-                return "redirect:/student/list";
+                tId=user_id;
+//                System.out.println(tId);
+                return "redirect:/teacher";
             }
             else if(loginService.loginSf(user_id).equals("g")){
                 return "redirect:/admin/admin";
@@ -59,6 +62,10 @@ public class LoginController {
     @RequestMapping(value = "/student")
     public String getSslist() {
         return "student/list";
+    }
+    @RequestMapping(value = "/teacher")
+    public String getTlist() {
+        return "teacher/T_all";
     }
 
 }

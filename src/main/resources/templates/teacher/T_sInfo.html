@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生信息页面</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>学生id</th>
+        <th>学生姓名</th>
+        <th>学生专业</th>
+        <th>课程ID</th>
+        <th>成绩</th>
+<!--        <th>打分</th>-->
+    </tr>
+    <tr th:each="sc: ${sc}">
+        <td th:text="${sc.sId}"></td>
+        <td th:text="${sc.sName}"></td>
+        <td th:text="${sc.sSpe}"></td>
+        <td th:text="${sc.cId}"></td>
+        <td th:text="${sc.cGrade}"></td>
+<!--        <td>-->
+<!--            <form th:action="@{'/T_update/'+${sc.cId}}" method="post">-->
+<!--                <button type="submit">编辑</button>-->
+<!--            </form>-->
+<!--        </td>-->
+
+    </tr>
+</table>
+<div class="con">
+    <form action="/ltwo" method="post">
+        <label for="cS">学生：</label>
+        <input type="text" id="cS" name="cS" /><br/>
+        <label for="cC">课程：</label>
+        <input type="text" id="cC" name="cC" /><br/>
+        <label for="cG">分数：</label>
+        <input type="text" id="cG" name="cG" /><br/>
+        <input type="submit" value="Login" />
+    </form>
+</div>
+</body>
+</html>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    table {
+        border-collapse: collapse;
+        width: 80%;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>

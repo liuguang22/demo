@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课程成绩分析</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>平均分</th>
+        <th>最高分</th>
+        <th>最低分</th>
+        <th>及格率</th>
+        <th>优秀率</th>
+
+    </tr>
+    <tr th:each="fenxi : ${fenxi}">
+        <td th:text="${fenxi.cAvg}"></td>
+        <td th:text="${fenxi.cMax}"></td>
+        <td th:text="${fenxi.cMin}"></td>
+        <td th:text="${fenxi.cJg}"></td>
+        <td th:text="${fenxi.cYx}"></td>
+
+
+    </tr>
+</table>
+</body>
+</html>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    table {
+        border-collapse: collapse;
+        width: 80%;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
