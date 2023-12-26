@@ -100,12 +100,22 @@ public class AdminController {
         return "admin/deleteStudent";
     }
 
-    @RequestMapping(value = "/teeacher/{tId}", method = RequestMethod.POST)
-    public String delTeacher(@PathVariable("sId") String teacherid){
-        System.out.println("删除学生");
+    @RequestMapping(value = "/teacher/{tId}", method = RequestMethod.POST)
+    public String delTeacher(@PathVariable("tId") String teacherid){
+        System.out.println("删除教师");
         adminService.delteacher(teacherid);
         adminService.deluser(teacherid);
-        return "/admin/managerstudent";
+        return "/admin/managerteacher";
+    }
+
+    //查看教师
+    @RequestMapping(value = "/adminteacherlist", method = RequestMethod.GET)
+    public String getTeacherList(Model model){
+        System.out.println("获取教师列表");
+        List<Teacher> teachers = adminService.getTeacherList();
+        teachers.forEach(System.out::println);
+        model.addAttribute("teachers", teachers);
+        return "admin/adminTeacherlist";
     }
 
     @RequestMapping(value = "/managercourse")

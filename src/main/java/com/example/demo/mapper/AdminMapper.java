@@ -9,6 +9,7 @@ public interface AdminMapper {
     List<Student> getAllStudent();
     List<Teacher>  getAllTeacher();
     List<Spe>  getAllSpe();
+    List<Spe>  getAllCourse();
 
     //插入数据
     void insertCourse(Course course);
