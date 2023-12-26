@@ -11,8 +11,9 @@
         WHERE user_id = #{user_id}
     </select>
 
-    <select id="getAllCourse" resultType="com.example.demo.entity.Course">
-        select * from course
+    <select id="getUserByUser_sf" resultType="String">
+    SELECT user_sf FROM user
+    WHERE user_id = #{user_id}
     </select>
 
 </mapper>

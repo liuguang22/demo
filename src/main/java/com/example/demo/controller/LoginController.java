@@ -26,13 +26,23 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login")
-    public String login(@RequestParam("user_id") String user_id, @RequestParam("password") String password, Model model) {
+    public String login(@RequestParam("user_id") String user_id,@RequestParam("password") String password, Model model) {
         System.out.println("login post");
         // 在这里进行用户名和密码的验证
         if (loginService.login(new User(user_id, password))) {
-            System.out.println("登录成功");
-            sId=user_id;
-            return "redirect:/admin/admin"; // 用户验证成功，重定向到成功页面
+            System.out.println("登陆成功");
+            if(loginService.loginSf(user_id).equals("s")){
+                sId=user_id;
+                return "redirect:/student";}
+            else if(loginService.loginSf(user_id).equals("t")){
+                return "redirect:/student/list";
+            }
+            else if(loginService.loginSf(user_id).equals("g")){
+                return "redirect:/admin/admin";
+            }
+            else{
+                return "login";
+            }// 用户验证成功，重定向到成功页面
         } else {
             model.addAttribute("error", "用户名或密码错误");
             System.out.println("用户名或密码错误");
@@ -40,12 +50,13 @@ public class LoginController {
         }
     }
 
+
     //成功登录
     @RequestMapping(value = "/admin/admin")
     public String getSlist() {
         return "admin/admin";
     }
-    @RequestMapping(value = "/list")
+    @RequestMapping(value = "/student")
     public String getSslist() {
         return "student/list";
     }

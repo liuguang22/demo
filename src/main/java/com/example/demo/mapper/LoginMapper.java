@@ -8,7 +8,9 @@ import org.mybatis.spring.annotation.MapperScan;
 import java.util.List;
 public interface LoginMapper {
     User getUserByUser_id(String user_id);
+    String getUserByUser_sf(String usr_id);
 
-    List<Course> getAllCourse();
+//    List<Course> getAllCourse();
 
 }
+

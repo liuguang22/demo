@@ -21,4 +21,10 @@ public class LoginServiceImpl implements LoginService {
             return false;
         }else return user1.getPassword().equals(user.getPassword());
     }
+    @Override
+    public String loginSf(String userId) {
+        String sf = loginMapper.getUserByUser_sf(userId);
+        return sf;
+    }
+
 }

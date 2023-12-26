@@ -126,6 +126,8 @@ public class AdminController {
         return "/admin/managercourse";
     }
 
+    //查看课程
+
     @RequestMapping(value = "/adminCourselist", method = RequestMethod.GET)
     public String getCourseLists(Model model){
         System.out.println("获取课程列表");
@@ -143,7 +145,6 @@ public class AdminController {
 
     @RequestMapping(value = "/openSpe",method = RequestMethod.GET)
     public String openSpe(){
-        System.out.println("管理学生信息");
         return "/admin/openSpe";
     }
     @RequestMapping(value = "/openSpe",method = RequestMethod.POST)
