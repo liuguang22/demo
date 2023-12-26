@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>教师列表</title>
+</head>
+
+<body>
+<table>
+  <tr>
+    <th>教师工号</th>
+    <th>教师姓名</th>
+    <th>教师性别</th>
+    <th>教师年龄</th>
+    <th>教师专业</th>
+  </tr>
+  <tr th:each="teacher : ${teachers}">
+    <td th:text="${teacher.tId}"></td>
+    <td th:text="${teacher.tName}"></td>
+    <td th:text="${teacher.tSex}"></td>
+    <td th:text="${teacher.tAge}"></td>
+    <td th:text="${teacher.tSpe}"></td>
+  </tr>
+</table>
+<form action="/admin/admin" method="get">
+  <button type="submit">返回主页</button>
+</form>
+</body>
+</html>
+
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 20px;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  a {
+    text-decoration: none;
+    color: blue;
+  }
+  button {
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    right: 30px;
+    top:12px;
+  }
+</style>
