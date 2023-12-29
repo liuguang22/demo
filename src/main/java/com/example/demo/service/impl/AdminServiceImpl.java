@@ -13,13 +13,6 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     AdminMapper adminMapper;
 
-    @Override
-    public List<Student> NewStudent() {
-        System.out.println("AdminService");
-        List<Student> students = adminMapper.getAllStudent();
-        System.out.println(students);
-        return students;
-    }
 
     @Override
     public List<Student> delStudent() {
@@ -50,13 +43,20 @@ public class AdminServiceImpl implements AdminService {
         return teachers;
     }
 
+
     @Override
-    public List<Teacher> NewTeacher() {
-        System.out.println("AdminService");
-        List<Teacher> teachers = adminMapper.getAllTeacher();
-        System.out.println(teachers);
-        return teachers;
+    public void addstudent(Student student){
+        adminMapper.NewStudentUser(student);
+        adminMapper.NewStudent(student);
     }
+
+
+    @Override
+    public void addteacher(Teacher teacher){
+        adminMapper.NewTeacherUser(teacher);
+        adminMapper.NewTeacher(teacher);
+    }
+
 
     @Override
     public List<Teacher> delTeacher() {
@@ -106,10 +106,6 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void addstudent(String studentid){
-        adminMapper.Newstudent(studentid);
-    }
-    @Override
     public void delstudent(String studentid){
         adminMapper.deletestudent(studentid);
     }
@@ -117,10 +113,7 @@ public class AdminServiceImpl implements AdminService {
     public void deluser(String studentid) {
         adminMapper.deleteuser(studentid);
     }
-//    @Override
-    public void addteacher(String teacherid){
-        adminMapper.Newteacher(teacherid);
-    }
+
     @Override
     public void delteacher(String teacherid){
         adminMapper.deleteteacher(teacherid);
@@ -133,6 +126,10 @@ public class AdminServiceImpl implements AdminService {
     public void delcourse(String courseid){
         adminMapper.deletecourse(courseid);
     }
+    public void updateTeacher(Teacher teacher){
+        adminMapper.updateTeacher(teacher);
+    }
+
     @Override
     public void openSpe(Spe spe) {
         adminMapper.NewSpe(spe);

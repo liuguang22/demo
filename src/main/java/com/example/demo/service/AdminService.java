@@ -10,11 +10,9 @@ import java.util.List;
 public interface AdminService {
     //学生
     List<Student> getStudentList();
-    List<Student> NewStudent();
-    List<Student> delStudent();
+
     //教师
     List<Teacher> getTeacherList();
-    List<Teacher> NewTeacher();
     List<Teacher> delTeacher();
     //查看已开设课程
     List<Course> getCourseLists();
@@ -23,12 +21,14 @@ public interface AdminService {
     //查看已有专业
     List<Spe> getSpeList();
 
-
-    void addstudent(String studentid);
+    List<Student> delStudent();
     void delstudent(String studentid);
     void deluser(String studentid);
     void updatestudent(Student student);
 
+    void updateTeacher(Teacher teacher);
+    void addteacher(Teacher teacher);
+    void addstudent(Student student);
 
     void deluser1(String teacherid);
     void delteacher(String teacherid);

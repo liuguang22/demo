@@ -6,15 +6,16 @@
 <mapper namespace="com.example.demo.mapper.AdminMapper">
 
     <!-- 学生 -->
-
-    <insert id="Newsuser">
+    <insert id="NewStudentUser">
         INSERT INTO user (user_id,user_sf,password)
-        VALUES (#{user_id}, 's', #{password})
+        VALUES (#{sId}, 's', '123456')
     </insert>
-    <insert id="Newstudent">
+
+    <insert id="NewStudent">
         INSERT INTO student (s_id,s_name, s_sex, s_age, s_spe)
-        VALUES (#{student_id}, #{student_name}, #{student_sex}, #{student_age}, #{student_spe})
+        VALUES (#{sId}, #{sName}, #{sSex}, #{sAge}, #{sSpe})
     </insert>
+
 
     <update id="updateStudent">
         UPDATE student set
@@ -39,24 +40,25 @@
 
     <!-- 教师 -->
 
-    <insert id="Newsuser1">
+    <insert id="NewTeacherUser">
         INSERT INTO user (user_id,user_sf,password)
-        VALUES (#{user_id}, 't', #{password})
+        VALUES (#{tId}, 't', '123456')
     </insert>
     <insert id="NewTeacher">
         INSERT INTO teacher (t_id,t_name, t_sex, t_age, t_spe)
-        VALUES (#{teacher_id}, #{teacher_name}, #{teacher_sex}, #{teacher_age}, #{teacher_spe})
+        VALUES (#{tId}, #{tName}, #{tSex}, #{tAge}, #{tSpe})
     </insert>
 
     <update id="updateTeacher">
-        UPDATE student set
-                           t_id = #{teacher_id},
-                           t_name = #{teacher_name},
-                           t_sex = #{teacher_sex},
-                           t_age = #{teacher_age},
-                           t_spe = #{teacher_spe},
-                           WHERE t_id = #{teacher_id}
+        UPDATE teacher set
+                           t_id = #{tId},
+                           t_name = #{tName},
+                           t_sex = #{tSex},
+                           t_age = #{tAge},
+                           t_spe = #{tSpe}
+        WHERE t_id = #{tId}
     </update>
+
 
     <select id="getAllTeacher" resultType="com.example.demo.entity.Teacher">
         select * from teacher

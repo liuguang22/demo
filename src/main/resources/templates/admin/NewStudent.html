@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>添加学生</title>
+</head>
+
+<body>
+
+<table>
+    <form action="/NewStudent" method="post">
+        <tr>
+            <td>学生学号</td>
+            <td><input type="text" name="sId"></td>
+        </tr>
+
+        <tr>
+            <td>学生姓名</td>
+            <td><input type="text" name="sName"></td>
+        </tr>
+
+        <tr>
+            <td>学生性别</td>
+            <td><input type="text" name="sSex"></td>
+        </tr>
+        <tr>
+            <td>学生年龄</td>
+            <td><input type="text" name="sAge"></td>
+        </tr>
+        <tr>
+            <td>学生专业</td>
+            <td><input type="text" name="sSpe"></td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="添加学生"></td>
+        </tr>
+    </form>
+
+
+    <form action="/admin/admin" method="get">
+        <button type="submit">返回主页</button>
+    </form>
+
+</table>
+
+</body>
+
+</html>

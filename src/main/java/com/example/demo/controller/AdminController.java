@@ -32,20 +32,16 @@ public class AdminController {
     }
 
     //添加学生
-    @RequestMapping(value = "/addStudent", method = RequestMethod.GET)
-    public String NewStudent(Model model){
-        System.out.println("获取学生列表");
-        List<Student> students = adminService.NewStudent();
-        students.forEach(System.out::println);
-        model.addAttribute("students", students);
-        return "student/tuike";
+    @RequestMapping(value = "/NewStudent", method = RequestMethod.GET)
+    public String NewStudent(){
+        return "/admin/NewStudent";
     }
 
-    @RequestMapping(value = "/addStudent", method = RequestMethod.POST)
-    public String addStudent(@PathVariable("sId") String studentid){
+    @RequestMapping(value = "/NewStudent", method = RequestMethod.POST)
+    public String addStudent(@ModelAttribute @Valid Student student){
         System.out.println("添加学生");
-        adminService.addstudent(studentid);
-        return "redirect:/addStudent";
+        adminService.addstudent(student);
+        return "/admin/admin";
     }
 
     //删除学生
@@ -90,6 +86,19 @@ public class AdminController {
         return "/admin/managerteacher";
     }
 
+    //添加教师
+    @RequestMapping(value = "/NewTeacher", method = RequestMethod.GET)
+    public String addteacher(){
+        return "/admin/NewTeacher";
+    }
+
+    @RequestMapping(value = "/NewTeacher", method = RequestMethod.POST)
+    public String addteacher(@ModelAttribute @Valid Teacher teacher){
+        System.out.println("添加教师");
+        adminService.addteacher(teacher);
+        return "/admin/admin";
+    }
+
     //删除教师
     @RequestMapping(value = "/delTeacher", method = RequestMethod.POST)
     public String delTeacher(Model model){
@@ -122,6 +131,19 @@ public class AdminController {
     public String managercourse(){
         System.out.println("管理课程信息");
         return "/admin/managercourse";
+    }
+
+    //修改教师信息
+    @RequestMapping(value = "/update_teacher",method = RequestMethod.GET)
+    public String update_teacher(){
+        System.out.println("管理教师信息--修改教师信息");
+        return "admin/update_teacher";
+    }
+    @RequestMapping(value = "/update_teacher",method = RequestMethod.POST)
+    public String update_teacher(@ModelAttribute @Valid Teacher teacher){
+        adminService.updateTeacher(teacher);
+        System.out.println("管理学生信息--修改教师信息");
+        return "admin/update_teacher";
     }
 
    //新增课程
