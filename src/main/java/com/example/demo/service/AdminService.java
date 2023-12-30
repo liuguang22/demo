@@ -35,6 +35,8 @@ public interface AdminService {
 
     void delcourse(String courseid);
     void openCourse(Course course);
+    void updateCourse(Course course);
+
 
     void openSpe(Spe spe);
     void delspe(String speid);

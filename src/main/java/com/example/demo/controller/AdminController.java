@@ -73,6 +73,13 @@ public class AdminController {
     }
 
     //修改学生信息
+    @RequestMapping(value = "/update_student",method = RequestMethod.GET)
+    public String update_student(){
+        System.out.println("管理学生信息--修改学生信息");
+        return "admin/update_student";
+    }
+
+
     @RequestMapping(value = "/update_student",method = RequestMethod.POST)
     public String update_student(@ModelAttribute @Valid Student student){
         adminService.updatestudent(student);
@@ -187,6 +194,20 @@ public class AdminController {
         model.addAttribute("courses", courses);
         return "admin/adminCourselist";
     }
+
+    //修改课程信息
+    @RequestMapping(value = "/update_course",method = RequestMethod.GET)
+    public String update_course(){
+        System.out.println("管理教师信息--修改教师信息");
+        return "admin/update_course";
+    }
+    @RequestMapping(value = "/update_course",method = RequestMethod.POST)
+    public String update_course(@ModelAttribute @Valid Course course){
+        adminService.updateCourse(course);
+        System.out.println("管理学生信息--修改教师信息");
+        return "admin/update_course";
+    }
+
 
     @RequestMapping(value = "/managerspe")
     public String managerspe(){

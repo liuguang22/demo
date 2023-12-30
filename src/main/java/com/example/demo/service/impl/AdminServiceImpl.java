@@ -89,6 +89,8 @@ public class AdminServiceImpl implements AdminService {
         return Course;
     }
 
+
+
     @Override
     public List<Spe> getSpeList() {
         System.out.println("AdminService");
@@ -129,6 +131,10 @@ public class AdminServiceImpl implements AdminService {
     public void updateTeacher(Teacher teacher){
         adminMapper.updateTeacher(teacher);
     }
+    public void updateCourse(Course course){
+        adminMapper.updateCourse(course);
+    }
+
 
     @Override
     public void openSpe(Spe spe) {

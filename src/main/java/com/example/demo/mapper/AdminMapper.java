@@ -31,6 +31,7 @@ public interface AdminMapper {
     void NewTeacherUser(Teacher teacher);
     void updateTeacher(Teacher teacher);
 
+    void updateCourse(Course course);
 
 
 }

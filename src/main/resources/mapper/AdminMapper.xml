@@ -85,6 +85,18 @@
         select course.*,teacher.t_name from course join teacher on course.t_id = teacher.t_id;
     </select>
 
+    <update id="updateCourse">
+        UPDATE course set
+                          c_id = #{cId},
+                          c_name = #{cName},
+                          c_credit = #{cCredit},
+                          r_id = #{rId},
+                          t_id = #{tId },
+                          t_time = #{tTime}
+        WHERE c_id = #{cId}
+    </update>
+
+
     <!-- 专业 -->
 
     <insert id="NewSpe">

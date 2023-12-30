@@ -1,43 +1,103 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>修改课程信息</title>
+    <title>Modify Student Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table tr {
+            border-bottom: 1px solid #ddd;
+        }
+        table tr:last-child {
+            border-bottom: none;
+        }
+        table td {
+            padding: 10px 20px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #008CBA;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005f6b;
+        }
+    </style>
 </head>
 
 <body>
-    <form action="/openCourse" method="post">
-        <table>
-            <tr>
-                <td>课程课号</td>
-                <td><input type="text" name="course_id"></td>
-            </tr>
-            <tr>
-                <td>课程名称</td>
-                <td><input type="text" name="course_name"></td>
-            </tr>
-            <tr>
-                <td>课程学分</td>
-                <td><input type="text" name="course_credit"></td>
-            </tr>
-            <tr>
-                <td>上课教室</td>
-                <td><input type="text" name="course_address"></td>
-            </tr>
-            <tr>
-                <td>授课教师</td>
-                <td><input type="text" name="course_teacher"></td>
-            </tr>
-            <tr>
-                <td>课程时间</td>
-                <td><input type="text" name="course_"></td>
-            </tr>
-            <tr>
-                <td><input type="submit" value="确认修改"></td>
-            </tr>
-        </table>
-    </form>
-</body>
+<table>
 
+
+    <form action="/update_course" method="post">
+
+        <tr>
+            <td>课程课号</td>
+            <td><input type="text" name="cId"></td>
+        </tr>
+        <tr>
+            <td>课程名称</td>
+            <td><input type="text" name="cName"></td>
+        </tr>
+        <tr>
+            <td>课程学分</td>
+            <td><input type="text" name="cCredit"></td>
+        </tr>
+        <tr>
+            <td>上课教室</td>
+            <td><input type="text" name="rId"></td>
+        </tr>
+        <tr>
+            <td>授课教师工号</td>
+            <td><input type="text" name="tId"></td>
+        </tr>
+        <tr>
+            <td>课程时间</td>
+            <td><input type="text" name="tTime"></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;"><input type="submit" value="确认修改"></td>
+        </tr>
+    </form>
+
+    <form action="/admin/admin" method="get">
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <button type="submit">返回主页</button>
+            </td>
+        </tr>
+    </form>
+
+
+</table>
+</body>
 </html>
