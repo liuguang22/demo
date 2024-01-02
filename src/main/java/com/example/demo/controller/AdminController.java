@@ -38,7 +38,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/NewStudent", method = RequestMethod.POST)
-    public String addStudent(@ModelAttribute @Valid Student student){
+    public String addStudent(@ModelAttribute Student student){
         System.out.println("添加学生");
         adminService.addstudent(student);
         return "/admin/admin";
@@ -81,7 +81,7 @@ public class AdminController {
 
 
     @RequestMapping(value = "/update_student",method = RequestMethod.POST)
-    public String update_student(@ModelAttribute @Valid Student student){
+    public String update_student(@ModelAttribute Student student){
         adminService.updatestudent(student);
         System.out.println("管理学生信息--修改学生信息");
         return "admin/update_student";
@@ -100,7 +100,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/NewTeacher", method = RequestMethod.POST)
-    public String addteacher(@ModelAttribute @Valid Teacher teacher){
+    public String addteacher(@ModelAttribute Teacher teacher){
         System.out.println("添加教师");
         adminService.addteacher(teacher);
         return "/admin/admin";
@@ -147,7 +147,7 @@ public class AdminController {
         return "admin/update_teacher";
     }
     @RequestMapping(value = "/update_teacher",method = RequestMethod.POST)
-    public String update_teacher(@ModelAttribute @Valid Teacher teacher){
+    public String update_teacher(@ModelAttribute Teacher teacher){
         adminService.updateTeacher(teacher);
         System.out.println("管理学生信息--修改教师信息");
         return "admin/update_teacher";
@@ -160,7 +160,7 @@ public class AdminController {
         return "/admin/openCourse";
     }
     @RequestMapping(value = "/openCourse",method = RequestMethod.POST)
-    public String openCourse(@ModelAttribute @Valid Course course){
+    public String openCourse(@ModelAttribute Course course){
         adminService.openCourse(course);
         System.out.println("添加课程成功");
         return "admin/openCourse";
@@ -202,7 +202,7 @@ public class AdminController {
         return "admin/update_course";
     }
     @RequestMapping(value = "/update_course",method = RequestMethod.POST)
-    public String update_course(@ModelAttribute @Valid Course course){
+    public String update_course(@ModelAttribute Course course){
         adminService.updateCourse(course);
         System.out.println("管理学生信息--修改教师信息");
         return "admin/update_course";
@@ -222,7 +222,7 @@ public class AdminController {
         return "/admin/openSpe";
     }
     @RequestMapping(value = "/openSpe",method = RequestMethod.POST)
-    public String openSpe(@ModelAttribute @Valid Spe spe){
+    public String openSpe(@ModelAttribute Spe spe){
         adminService.openSpe(spe);
         System.out.println("添加专业成功");
         return "admin/admin";

@@ -12,7 +12,7 @@
     </delete>
 
     <select id="getAllCourse" resultType="com.example.demo.entity.Course">
-        select course.c_id,c_name,c_credit,r_id,course.t_id,t_time,teacher.t_name from course,teacher where course.t_id = teacher.t_id EXCEPT (select course.c_id,c_name,c_credit,r_id,course.t_id,t_time,teacher.t_name from grade,course,teacher where grade.c_id=course.c_id AND grade.s_id=1001 AND teacher.t_id=course.t_id)
+        select course.c_id,c_name,c_credit,r_id,course.t_id,t_time,teacher.t_name from course,teacher where course.t_id = teacher.t_id EXCEPT (select course.c_id,c_name,c_credit,r_id,course.t_id,t_time,teacher.t_name from grade,course,teacher where grade.c_id=course.c_id AND grade.s_id=#{sId} AND teacher.t_id=course.t_id)
     </select>
     <select id="getMyCourse" resultType="com.example.demo.entity.Course">
         select course.c_id,c_name,c_credit,r_id,course.t_id,t_name,t_time from grade,course,teacher where grade.c_id=course.c_id AND grade.s_id=#{sId} AND teacher.t_id=course.t_id

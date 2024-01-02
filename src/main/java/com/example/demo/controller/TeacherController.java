@@ -49,7 +49,7 @@ public class TeacherController {
 
     @RequestMapping(value = "/T_sfx")
     public String getT_sfx(Model model) {
-        System.out.println("获取课程列表");
+        System.out.println("获取分析1");
         List<Course> courses = teacherService.getT_sfx(ttId);
         courses.forEach(System.out::println);
         model.addAttribute("courses", courses);
@@ -58,13 +58,12 @@ public class TeacherController {
 
     @RequestMapping(value = "/T_sfenxi/{cId}",method= RequestMethod.POST)
     public String getT_sfenxi(@PathVariable("cId") String cId,Model model) {
-        System.out.println("获取分析");
+        System.out.println("获取分析2");
         List<Fenxi> fenxi = teacherService.getT_sfenxi(cId);
         fenxi.forEach(System.out::println);
         model.addAttribute("fenxi", fenxi);
         return "teacher/T_sfenxi";
     }
-
     @RequestMapping(value = "/T_sInfo/{cId}",method= RequestMethod.POST)
     public String getT_sInfo(@PathVariable("cId") String cId, Model model) {
         System.out.println("获取学生信息列表");
@@ -89,5 +88,6 @@ public class TeacherController {
         Sc sc=new Sc(sId,cId,cGrade);
         teacherService.getT_newG(sc);
         return "redirect:/T_student";
+
     }
 }
